@@ -16,7 +16,7 @@ export default function BlogPreview(props: any) {
           <h3>Description:</h3>
           <div>
             {props.description}
-            <div>{props.date}</div>
+            <div>{(props.date)}</div>
           </div>
         </span>
 

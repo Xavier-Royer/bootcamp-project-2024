@@ -93,7 +93,7 @@ main {
   text-emphasis: bold;
 }
 
-/*background image deosnt work becaseu no home-page class or body anymore*/ 
+/*background image deosnt work becaseu no home-page class or body anymore*/
 .home-page body {
   margin: 0;
   min-height: 100vh;
@@ -232,7 +232,7 @@ main {
   outline-color: aqua;
   outline-style: solid;
   margin-bottom: 50px;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 /*Blog event container*/
@@ -370,4 +370,68 @@ button:hover {
   margin: 0 12px;
   text-decoration: none;
   letter-spacing: 2px;
+}
+
+/*project Page styling*/
+
+/*project background*/
+.project body {
+  background-color: rgba(240, 236, 228, 1);
+}
+
+/*container for all projects*/
+#projects {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  outline-width: 0px;
+  outline-color: aqua;
+  outline-style: solid;
+  margin-bottom: 40px;
+  margin: 20px auto;
+}
+
+/*project event container*/
+.project-container {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  min-width: 800px;
+  min-height: 180px;
+  outline-width: 5px;
+  outline-color: purple;
+  outline-style: solid;
+  margin-bottom: 80px;
+}
+
+/*project post description text container*/
+.project-container .description-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+  min-height: 200px;
+  margin: 10px;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+/*description header text styling*/
+.project-container .description-container h3 {
+  font-size: medium;
+}
+
+/*project post video container*/
+.project-container .video-container {
+  max-width: 45%;
+  margin: 10px;
+  outline-width: 0px;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+/*project Video scale to fit container*/
+.project-container .video-container video {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
 }

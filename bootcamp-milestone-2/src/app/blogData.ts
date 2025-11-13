@@ -1,4 +1,11 @@
-type Blog = {
+import connectDB from "../database/database";
+import Blog from "../database/blogSchema";
+import blogSchema from "../database/blogSchema";
+
+import { NextRequest, NextResponse } from 'next/server'
+//import connectDB from "@/helpers/db"
+
+/*type Blog = {
   title: string;
   date: string;
   description: string;
@@ -6,8 +13,10 @@ type Blog = {
   imageAlt: string;
   slug: string;
 };
+*/
 
-const blogs: Blog[] = [
+
+/*= [
   {
     title: "Happy Birthday Dominic",
     date: "9/19/2025",
@@ -36,9 +45,30 @@ const blogs: Blog[] = [
     slug: "running",
   },
 ];
+*/
+var blogs
 
-export default blogs;
+export default getBlogs;
 
-export function getBlog(slug: string) {
+export async function getBlogs() {
+  await connectDB(); // ensure DB connection
+
+  try {
+    // query for all blogs and sort by date (newest first)
+    const blogResults = await Blog.find().sort({ date: -1 }).orFail();
+    console.log("blogresults " + blogResults);
+    return blogResults;
+  } catch (err: any) {
+    console.log("error: " +err?.message);
+    return [];
+  }
+}
+
+
+
+//old get blog function
+
+export async function getBlog(slug: string) {
+  blogs = await getBlogs()
   return blogs.find(b => b.slug === slug);
 }
