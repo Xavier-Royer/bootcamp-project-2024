@@ -8,8 +8,22 @@ type Blog = {
 	image: string; // url for string in public
 	image_alt: string; // alt for image
 	slug: string; 
-    //comments: IComment[]; // array for comments
+    comments: IComment[]; // array for comments
 };
+
+export type IComment = {
+		user: string;
+		comment: string;
+		time: Date;
+}
+
+const commentSchema = new Schema<IComment>(
+  {
+    user:   { type: String, required: true },
+    comment:{ type: String, required: true },
+    time:   { type: Date,   required: true, default: Date.now },
+  }
+);
 
 
 // mongoose schema 
@@ -22,13 +36,19 @@ const blogSchema = new Schema<Blog>(
 	    image_alt: { type: String, required: true },
 		//content: { type: String, required: true },
         slug: { type: String, required: true },
+		comments: { type: [commentSchema], required: false, default: [] },
+		/*comments: [{ 
+			user: { type: String, required: true },
+			comment: { type: String, required: true },
+			time: { type: Date, required: true, default: new Date() }
+		}],*/
     },
     { collection: "Blogs" 
     }
 )
 
 // defining the collection and model
-const Blog = mongoose.models['Blogs'] ||
+const BlogModel = mongoose.models['Blogs'] ||
     mongoose.model('Blogs', blogSchema);
 
-export default Blog;
+export default BlogModel;
