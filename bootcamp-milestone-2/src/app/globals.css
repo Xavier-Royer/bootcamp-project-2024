@@ -42,7 +42,7 @@ main {
 
 /*Profile About container*/
 .about {
-  margin-top: 10px;
+  margin-top: 0px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -93,29 +93,41 @@ main {
   text-emphasis: bold;
 }
 
-/*background image deosnt work becaseu no home-page class or body anymore*/
-.home-page body {
+.home-page .page-title {
+  margin-top: 0px;
+}
+
+.home-page {
   margin: 0;
+  
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content:start ;
+  align-items: center;
+
   min-height: 100vh;
   background-image: url("/Bannerimg1.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
+  overflow: hidden;  
 }
 
-/*background image overlay*/
-.home-page body::before {
+/* yellow overlay */
+.home-page::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0; 
   background: rgba(255, 255, 100, 0.3);
-  z-index: -1;
+  z-index: 0;        
 }
 
+.home-page > * {
+  position: relative;
+  z-index: 1;
+}
 /*Portfolio CSS*/
 
 /*Page title and Body*/
@@ -219,8 +231,8 @@ main {
 /*Blog Page code*/
 
 /*blog background*/
-.blog body {
-  background-color: rgba(240, 236, 228, 1);
+.blog-background {
+  background-color: #020617; /*rgba(240, 236, 228, 1);*/
 }
 
 /*container for all blog events*/
@@ -235,6 +247,13 @@ main {
   margin: 0 auto;
 }
 
+#blog-events h2 {
+  color: #e5e7eb;
+  font-size: xx-large;
+  margin-bottom: 10px;
+  /*text-align: center;*/
+}
+
 /*Blog event container*/
 .post-container {
   display: flex;
@@ -243,8 +262,17 @@ main {
   min-width: 400px;
   min-height: 200px;
   outline-width: 5px;
-  outline-color: purple;
+  outline-color: #c4b5fd;
+  color: #050a1a;
+  background-color:  rgb(36, 36, 64);
+  margin-top: 10px;
   outline-style: solid;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.35),
+    /* subtle purple halo */ 0 18px 45px rgba(15, 23, 42, 0.9); /* deep blue drop shadow */
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
 /*blog post description text container*/
@@ -253,6 +281,7 @@ main {
   flex-direction: column;
   max-width: 45%;
   min-height: 200px;
+
   margin: 10px;
   overflow: hidden;
   max-height: 200px;
@@ -261,6 +290,23 @@ main {
 /*description header text styling*/
 .post-container .description-container h3 {
   font-size: medium;
+  color: #f9fafb;
+}
+.post-container .description-container div {
+  font-size: small;
+  color: #9ca3af;
+}
+
+.post-container .description-container link {
+  font-size: small;
+  color: #9ca3af;
+  margin-top: 20px;
+}
+
+.post-container .description-container .date {
+  text-align: bottom;
+  text-align: right;
+  margin-top: auto;
 }
 
 /*blog post image container*/
@@ -272,6 +318,10 @@ main {
   max-height: 200px;
 }
 
+.single-blog .post-container .image-container {
+  max-height: 400px;
+}
+
 /*blog image scale to fit container*/
 .post-container .image-container img {
   object-fit: contain;
@@ -279,12 +329,38 @@ main {
   width: 100%;
 }
 
+.single-blog .post-container .description-container{
+  max-height: 400px;
+}
+
+.single-blog .post-container {
+  margin-bottom: 40px;
+}
+
+.single-blog h1 {
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+/*.single-blog {
+  background-color: rgba(80,20,60,1);
+}*/
+
 /*blog post comments*/
+.single-blog h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: x-large;
+  font-weight: bold;
+  color: black;
+}
+
 .comment-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 100%;
   height: auto;
   background-color: rgba(250, 249, 246, 1);
   border: 2px solid rgba(184, 134, 11, 1);
@@ -296,6 +372,8 @@ main {
   margin-bottom: 20px;
   border: 2px solid rgba(50, 30, 0, 0.5);
   width: 80%;
+  min-width: 80%;
+  
 }
 
 .comment h3 {
@@ -303,18 +381,48 @@ main {
   text-align: left;
   font-size: medium;
   font-weight: bold;
+  min-width: 100%;
 }
 
 .comment p {
   margin-left: 50px;
   text-align: left;
   font-size: small;
+  min-width: 100%;
 }
 
-.comment span {
-  margin-left: 600px;
+.comment div {
   font-size: smaller;
+  margin-left: auto;
+  min-width: 100%;
+  text-align: right;
 }
+
+.single-blog form {
+  margin-top: 10px;
+  width: 80%;
+}
+
+.single-blog .username-textarea {
+
+  height: 50px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.single-blog .comment-textarea {
+  height: 100px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+
+.single-blog button {
+  align-self: start;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
 /*contanct page form*/
 
 /*page background*/
@@ -412,12 +520,15 @@ button:hover {
 
 /*project background*/
 .project body {
-  background-color: rgba(240, 236, 228, 1);
+  background-color: #050816; /*rgba(240, 236, 228, 1);*/
+}
+.project-background {
+  background-color: #020617; /*rgba(240, 236, 228, 1);*/
 }
 
 /*container for all projects*/
 #projects {
-  width: 800px;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   outline-width: 0px;
@@ -427,47 +538,71 @@ button:hover {
   margin: 20px auto;
 }
 
+#projects h2 {
+  color: #e5e7eb;
+  font-size: xx-large;
+  margin-bottom: 10px;
+}
+
 /*project event container*/
 .project-container {
   display: flex;
   overflow: hidden;
   flex-direction: row;
-  min-width: 800px;
-  min-height: 180px;
-  outline-width: 5px;
-  outline-color: purple;
+  min-width: 1000px;
+  min-height: 400px;
+  outline-width: 2px;
+  outline-color: #8b5cf6;
   outline-style: solid;
+  color: #050a1a;
   margin-bottom: 80px;
+  align-items: center;
+  /*box-shadow: rgba(0, 0, 0, 0.99) 0px 4px 12px;*/
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.35),
+    /* subtle purple halo */ 0 18px 45px rgba(15, 23, 42, 0.9); /* deep blue drop shadow */
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
 /*project post description text container*/
 .project-container .description-container {
   display: flex;
   flex-direction: column;
-  max-width: 45%;
-  min-height: 200px;
+  max-width: 30%;
+  min-height: 400px;
   margin: 10px;
   overflow: hidden;
-  max-height: 200px;
+  max-height: 400px;
 }
 
 /*description header text styling*/
 .project-container .description-container h3 {
+  font-size: Larger;
+  color: #9ca3af;
+  font-weight: bold;
+}
+.project-container .description-container div {
   font-size: medium;
+  color: #9ca3af;
 }
 
 /*project post video container*/
 .project-container .video-container {
-  max-width: 45%;
+  max-width: 65%;
+  min-width: 65%;
   margin: 10px;
   outline-width: 0px;
   overflow: hidden;
-  max-height: 200px;
+  max-height: 400px;
+  outline-width: 10px;
+  outline-color: white;
 }
 
 /*project Video scale to fit container*/
-.project-container .video-container video {
+.project-container .video-container iframe {
   object-fit: contain;
+  min-height: 400px;
   height: 100%;
   width: 100%;
 }
