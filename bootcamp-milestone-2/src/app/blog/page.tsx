@@ -8,7 +8,7 @@ export default async function Blog() {
   console.log(blogs);
   return (
     
-    <>
+    <main className="project-background">
     <div id = "blog-events"> 
     
     {blogs.map(blog => 
@@ -17,11 +17,11 @@ export default async function Blog() {
         title = {blog.title}
         description={blog.description}
         image={blog.image}
-        date={String(blog.date)}
+        date={(blog.date)}
         slug ={blog.slug}
       />
 	  )}
     </div>
-    </>
+    </main>
     )
 }

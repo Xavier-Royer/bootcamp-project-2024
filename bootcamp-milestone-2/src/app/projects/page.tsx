@@ -8,7 +8,7 @@ export default async function Project() {
   console.log(projects);
   return (
     
-    <>
+    <main className="project-background">
     <div id = "projects"> 
     
     {projects.map(project => 
@@ -21,6 +21,6 @@ export default async function Project() {
       />
       )}
     </div>
-    </>
+    </main>
     )
 }

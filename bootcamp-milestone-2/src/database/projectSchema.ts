@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+
 // typescript type (can also be an interface)
 type Project = {
     title: string;

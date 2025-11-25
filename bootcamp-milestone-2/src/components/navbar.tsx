@@ -15,9 +15,9 @@ export default function Navbar() {
         </h1>
         <ul className={style.navlist}>
           <Link href="/">Home</Link>
-          <Link href="/blog">Blog</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/resume">Resume</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact Me</Link>
         </ul>
       </nav>

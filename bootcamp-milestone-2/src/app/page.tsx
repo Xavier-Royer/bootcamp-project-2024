@@ -4,12 +4,13 @@ export default function Home() {
   return (
 	<>
         <main className="home-page">
+         
           <h1 className="page-title">Xavier Royer</h1>
 
           <div className="about">
             <div className="about-img">
               <Image
-                src="/ProfilePicture.png"
+                src="/ProfilePicture.png" 
                 alt="A picture of Xavier Royer "
                 className="circle-img"
                 width={100}
@@ -25,8 +26,10 @@ export default function Home() {
                 basketball, spikeball, learning new things, and pretty much
                 anything outdoors!
               </p>
-            </div>
+          
           </div>
+          </div>
+          
         </main>
 	</>
   );

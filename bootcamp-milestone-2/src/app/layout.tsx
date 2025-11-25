@@ -33,7 +33,7 @@ export default function RootLayout({
   // returns boilerplate
   return (
     <html lang="en">
-      <body>
+      <body className={children?.toString+"-background"}>
         <Navbar />
         {children}
         <Footer/>
