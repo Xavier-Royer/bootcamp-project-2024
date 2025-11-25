@@ -279,6 +279,42 @@ main {
   width: 100%;
 }
 
+/*blog post comments*/
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: auto;
+  background-color: rgba(250, 249, 246, 1);
+  border: 2px solid rgba(184, 134, 11, 1);
+  margin-bottom: 40px;
+}
+
+.comment {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(50, 30, 0, 0.5);
+  width: 80%;
+}
+
+.comment h3 {
+  margin-left: 10px;
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.comment p {
+  margin-left: 50px;
+  text-align: left;
+  font-size: small;
+}
+
+.comment span {
+  margin-left: 600px;
+  font-size: smaller;
+}
 /*contanct page form*/
 
 /*page background*/
